@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cards>
+    <card id="0001">
+        <cardholder>John Smith</cardholder>
+        <discount>5</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="0002">
+        <cardholder>Philip J. Fry</cardholder>
+        <discount>7</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="0003">
+        <cardholder>Mary Sue</cardholder>
+        <discount>9</discount>
+        <isActive>false</isActive>
+    </card>
+    <card id="0404">
+        <cardholder>Marty Stu</cardholder>
+        <discount>5</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="0070">
+        <cardholder>James Bond</cardholder>
+        <discount>2</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="1234">
+        <cardholder>John Doe</cardholder>
+        <discount>10</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="5678">
+        <cardholder>Jane Doe</cardholder>
+        <discount>15</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="0777">
+        <cardholder>Sam Sameperson</cardholder>
+        <discount>8</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="1337">
+        <cardholder>Ronald McDonald</cardholder>
+        <discount>4</discount>
+        <isActive>true</isActive>
+    </card>
+    <card id="0008">
+        <cardholder>Harland Sanders</cardholder>
+        <discount>9</discount>
+        <isActive>true</isActive>
+    </card>
+</cards>
