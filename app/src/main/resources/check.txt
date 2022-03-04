@@ -1,0 +1,27 @@
+
+                           CASH RECEIPT                           
+
+                        Whole Foods Market                        
+          2520 Glendale Blvd, Los Angeles, CA 90039, USA          
+                        Tel: +13233783891                        
+
+CASHIER: #1520                                    DATE: 03/05/2022
+                                                  TIME: 00:00:13
+------------------------------------------------------------------
+QTY  Description          SALE    Price     Cost      %      Total
+------------------------------------------------------------------
+8    Oranges "Maroc"              $1,29   $10,32    $1,54    $8,78
+5    Bananas "Cavendish"  SALE    $1,99    $9,95    $0,99    $8,96
+6    Gammon "Country"     SALE    $2,98   $17,88    $1,78   $16,10
+7    Chocolates           SALE    $4,34   $30,38    $3,03   $27,35
+5    Peas "Bonduelle"     SALE    $1,74    $8,70    $0,87    $7,83
+6    Milk                 SALE    $1,80   $10,80    $1,08    $9,72
+7    Coffee "Nescafe"     SALE    $5,99   $41,93    $4,19   $37,74
+8    Biscuits "Oreo"              $5,30   $42,40    $6,36   $36,04
+10   Tea "Lipton"                 $4,20   $42,00    $6,30   $35,70
+==================================================================
+CUSTOMER:                                                 Jane Doe
+PERSONAL DISCOUNT PERCENT:                                     15%
+TAXABLE TOT.                                               $188,22
+VAT17%                                                      $31,99
+TOTAL                                                      $220,21
