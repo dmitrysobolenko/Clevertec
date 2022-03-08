@@ -11,18 +11,11 @@ import java.nio.file.Files
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
-    id 'downloadFromNetTask' version '0.0.1-SNAPSHOT'
-}
-
-downloadFromNetTask {
-    address = 'https://raw.githubusercontent.com/dmitrysobolenko/Clevertec/3a61eefcb83550d6687b8403797dd569fa55144e/app/src/main/resources/check.txt'
-    path = '/src/main/resources/check.txt'
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
-    mavenLocal()
 }
 
 dependencies {
