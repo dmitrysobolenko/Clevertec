@@ -1,4 +1,4 @@
-package ru.clevertec.sax;
+package ru.clevertec.model.sax;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

@@ -1,9 +1,9 @@
-package ru.clevertec.utils;
+package ru.clevertec.model.utils;
 
-import ru.clevertec.beans.DiscountCard;
-import ru.clevertec.beans.Item;
+import ru.clevertec.model.beans.DiscountCard;
+import ru.clevertec.model.beans.Item;
 
-import static ru.clevertec.utils.Util.calculatePercents;
+import static ru.clevertec.model.utils.Util.calculatePercents;
 
 public class ItemFactory {
 
@@ -21,10 +21,10 @@ public class ItemFactory {
 
         name = itemStrArray[0];
         price = (int) (Double.parseDouble(itemStrArray[1]) * 100);
-        isOnSale = Boolean.parseBoolean(itemStrArray[2]) && quantity >= Util.getSaleQuantity();
+        isOnSale = Boolean.parseBoolean(itemStrArray[2]) && quantity >= Init.getSaleQuantity();
         cost = price * quantity;
         if (isOnSale) {
-            discount = calculatePercents(Util.getSaleDiscountPercent(), cost);
+            discount = calculatePercents(Init.getSaleDiscountPercent(), cost);
         } else {
             discount = calculatePercents(card.getDiscountPercent(), cost);
         }

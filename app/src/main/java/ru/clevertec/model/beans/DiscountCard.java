@@ -1,4 +1,4 @@
-package ru.clevertec.beans;
+package ru.clevertec.model.beans;
 
 public class DiscountCard {
     private String cardholder;
