@@ -1,8 +1,11 @@
 package ru.clevertec.model.utils;
 
+import ru.clevertec.model.utils.sax.SAXHandler;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
 import java.util.Properties;
 
 public class Init {
@@ -37,6 +40,16 @@ public class Init {
     private static String costString;
     private static String discountString;
     private static String totalPriseString;
+    private static Map<Integer, String[]> cardsMap;
+    private static Map<Integer, String[]> itemsMap;
+
+    public static Map<Integer, String[]> getCardsMap() {
+        return cardsMap;
+    }
+
+    public static Map<Integer, String[]> getItemsMap() {
+        return itemsMap;
+    }
 
     public static int getSaleDiscountPercent() {
         return saleDiscountPercent;
@@ -56,22 +69,6 @@ public class Init {
 
     public static int getVatRate() {
         return vatRate;
-    }
-
-    public static String[] getItemsTags() {
-        return itemsTags;
-    }
-
-    public static String[] getCardsTags() {
-        return cardsTags;
-    }
-
-    public static String getItemsFileName() {
-        return itemsFileName;
-    }
-
-    public static String getCardsFileName() {
-        return cardsFileName;
     }
 
     public static String getTitle() {
@@ -162,7 +159,7 @@ public class Init {
 
         Properties properties = new Properties();
 
-        try (Reader reader = new FileReader(path)) {
+        try (Reader reader = new FileReader(path + "config.properties")) {
             properties.load(reader);
             saleDiscountPercent = Integer.parseInt(properties.getProperty("saleDiscountPercent"));
             saleQuantity = Integer.parseInt(properties.getProperty("saleQuantity"));
@@ -200,6 +197,7 @@ public class Init {
             System.exit(1);
         }
 
-
+        itemsMap = SAXHandler.getMap(path + itemsFileName, itemsTags);
+        cardsMap = SAXHandler.getMap(path + cardsFileName, cardsTags);
     }
 }

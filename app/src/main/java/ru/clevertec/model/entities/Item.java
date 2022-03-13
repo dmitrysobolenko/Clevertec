@@ -1,4 +1,4 @@
-package ru.clevertec.model.beans;
+package ru.clevertec.model.entities;
 
 public class Item {
     private String name;

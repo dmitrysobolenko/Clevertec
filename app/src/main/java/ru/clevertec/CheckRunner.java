@@ -3,23 +3,26 @@
  */
 package ru.clevertec;
 
-import ru.clevertec.model.beans.Check;
+import ru.clevertec.model.entities.Check;
+import ru.clevertec.model.entities.CheckFactory;
 import ru.clevertec.model.exceptions.InputDataException;
-import ru.clevertec.model.utils.CheckFactory;
 import ru.clevertec.model.utils.Init;
 import ru.clevertec.model.utils.Util;
-import ru.clevertec.model.utils.XMLInit;
+import ru.clevertec.service.CheckService;
+
+import static ru.clevertec.model.utils.Init.getOutputFileName;
+import static ru.clevertec.model.utils.Util.getPath;
 
 public class CheckRunner {
 
     public static void main(String[] args) {
         try {
-            Init.initialize("app/src/main/resources/config.properties");
-            XMLInit.initialize("app/src/main/resources/");
+            String path = getPath();
+            Init.initialize(path);
             Check check = CheckFactory.getInstance(args);
-            String output = Util.getCheck(check);
+            String output = CheckService.getCheck(check);
             System.out.println(output);
-            Util.symbolWrite(output, "app/src/main/resources/" + Init.getOutputFileName());
+            Util.symbolWrite(output, path + getOutputFileName());
         } catch (InputDataException e) {
             System.err.println(e.getMessage());
             System.exit(1);

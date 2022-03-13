@@ -1,7 +1,6 @@
-package ru.clevertec.model.utils;
+package ru.clevertec.model.entities;
 
-import ru.clevertec.model.beans.DiscountCard;
-import ru.clevertec.model.beans.Item;
+import ru.clevertec.model.utils.Init;
 
 import static ru.clevertec.model.utils.Util.calculatePercents;
 
