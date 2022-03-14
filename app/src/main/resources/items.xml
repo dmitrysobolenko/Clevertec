@@ -1,53 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
-  <item id="1">
-    <name>Oranges "Maroc"</name>
-    <price>1.29</price>
-    <isOnSale>false</isOnSale>
-  </item>
-  <item id="2">
-    <name>Bananas "Cavendish"</name>
-    <price>1.99</price>
-    <isOnSale>true</isOnSale>
-  </item>
-  <item id="3">
-    <name>Gammon "Country"</name>
-    <price>2.98</price>
-    <isOnSale>true</isOnSale>
-  </item>
-  <item id="4">
-    <name>Chocolates</name>
-    <price>4.35</price>
-    <isOnSale>true</isOnSale>
-  </item>
-  <item id="5">
-    <name>Peas "Bonduelle"</name>
-    <price>1.74</price>
-    <isOnSale>true</isOnSale>
-  </item>
-  <item id="6">
-    <name>Milk</name>
-    <price>1.8</price>
-    <isOnSale>true</isOnSale>
-  </item>
-  <item id="7">
-    <name>Coffee "Nescafe"</name>
-    <price>5.99</price>
-    <isOnSale>true</isOnSale>
-  </item>
-  <item id="8">
-    <name>Biscuits "Oreo"</name>
-    <price>5.3</price>
-    <isOnSale>false</isOnSale>
-  </item>
-  <item id="9">
-    <name>Tea "Lipton"</name>
-    <price>4.2</price>
-    <isOnSale>false</isOnSale>
-  </item>
-  <item id="10">
-    <name>Coca-Cola</name>
-    <price>2.85</price>
-    <isOnSale>false</isOnSale>
-  </item>
+    <item id="28">
+        <name>Apple</name>
+        <price>1.12</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="30">
+        <name>Watermelon</name>
+        <price>2.45</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="8">
+        <name>Orange</name>
+        <price>0.99</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="19">
+        <name>Pear</name>
+        <price>0.85</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="26">
+        <name>Cherry</name>
+        <price>3.18</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="39">
+        <name>Strawberry</name>
+        <price>5.20</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="35">
+        <name>Nectarine</name>
+        <price>3.17</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="110">
+        <name>Apple</name>
+        <price>1.12</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="29">
+        <name>MyApple</name>
+        <price>1.12</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="30">
+        <name>Apple</name>
+        <price>2.001</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="1">
+        <name>Oranges</name>
+        <price>1.29</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="2">
+        <name>Bananas</name>
+        <price>1.99</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="3">
+        <name>Gammon</name>
+        <price>2.98</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="4">
+        <name>Chocolates</name>
+        <price>4.35</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="5">
+        <name>Peas</name>
+        <price>1.74</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="6">
+        <name>Milk</name>
+        <price>1.8</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="7">
+        <name>Coffee</name>
+        <price>5.99</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="48">
+        <name>Biscuits</name>
+        <price>5.3</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="9">
+        <name>Tea</name>
+        <price>4.2</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="10">
+        <name>Coke</name>
+        <price>2.85</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="100">
+        <name>Pepsi</name>
+        <price>2.84</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="28">
+        <name>Apple</name>
+        <price>1.12</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="30">
+        <name>Watermelon</name>
+        <price>2.45</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="8">
+        <name>Orange</name>
+        <price>0.99</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="19">
+        <name>Pear</name>
+        <price>0.85</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="26">
+        <name>Cherry</name>
+        <price>3.18</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="39">
+        <name>Strawberry</name>
+        <price>5.20</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="35">
+        <name>Nectarine</name>
+        <price>3.17</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="110">
+        <name>Apple</name>
+        <price>1.12</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="29">
+        <name>MyApple</name>
+        <price>1.12</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="12">
+        <name>Apple</name>
+        <price>2.001</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="11">
+        <name>Oranges</name>
+        <price>1.29</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="10">
+        <name>Bananas</name>
+        <price>1.99</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="9">
+        <name>Gammon</name>
+        <price>2.98</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="8">
+        <name>Chocolates</name>
+        <price>10.n0</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="7">
+        <name>Peas</name>
+        <price>10.1</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="6">
+        <name>Milk</name>
+        <price>10</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="5">
+        <name>Ap</name>
+        <price>0.01</price>
+        <isOnSale>true</isOnSale>
+    </item>
+    <item id="4">
+        <name>APPLE</name>
+        <price>10.001</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="3">
+        <name>Apple2</name>
+        <price>110.00</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="2">
+        <name>apple</name>
+        <price>one</price>
+        <isOnSale>false</isOnSale>
+    </item>
+    <item id="1">
+        <name>(Apple)</name>
+        <price>(2.54)</price>
+        <isOnSale>false</isOnSale>
+    </item>
 </items>

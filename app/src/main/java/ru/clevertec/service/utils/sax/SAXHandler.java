@@ -1,4 +1,4 @@
-package ru.clevertec.model.utils.sax;
+package ru.clevertec.service.utils.sax;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static ru.clevertec.service.utils.Util.verifyData;
+import static ru.clevertec.service.utils.Util.verifyXML;
+
 public class SAXHandler extends DefaultHandler {
 
     private Map<Integer, String[]> dataMap;
@@ -20,11 +23,13 @@ public class SAXHandler extends DefaultHandler {
     private String tagName;
     private int id;
     private final String[] TAGS;
+    private final String REGEX;
 
-    private SAXHandler(String[] tags) {
+    private SAXHandler(String[] tags, String regex) {
         super();
         this.TAGS = tags;
         data = new String[TAGS.length - 2];
+        this.REGEX = regex;
     }
 
     @Override
@@ -32,7 +37,10 @@ public class SAXHandler extends DefaultHandler {
         if (qName.equals(TAGS[0])) {
             dataMap = new HashMap<>();
         } else if (qName.equals(TAGS[1])) {
-            id = Integer.parseInt(attributes.getValue("id"));
+            String idStr = verifyData(attributes.getValue("id"), REGEX, "Incorrect id in XML file: ");
+            if (!idStr.equals("#")) {
+                id = Integer.parseInt(idStr);
+            }
         } else {
             tagName = qName;
         }
@@ -41,7 +49,7 @@ public class SAXHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) {
         if (qName.equals(TAGS[1])) {
-            dataMap.put(id, data);
+                dataMap.put(id, data);
             data = new String[TAGS.length - 2];
         }
     }
@@ -60,12 +68,14 @@ public class SAXHandler extends DefaultHandler {
             if (i == -1) {
                 throw new SAXException();
             }
-            data[i] = value;
+            if (!verifyXML(tagName, value).equals("#")) {
+                data[i] = value;
+            }
             tagName = null;
         }
     }
 
-    public static Map<Integer, String[]> getMap(String path, String[] tags) {
+    public static Map<Integer, String[]> getMap(String path, String[] tags, String regex) {
 
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -73,7 +83,7 @@ public class SAXHandler extends DefaultHandler {
             SAXParser parser = factory.newSAXParser();
             SAXHandler handler;
 
-            handler = new SAXHandler(tags);
+            handler = new SAXHandler(tags, regex);
             parser.parse(new FileInputStream(path), handler);
             map = handler.dataMap;
 

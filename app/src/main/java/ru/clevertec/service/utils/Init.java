@@ -1,6 +1,6 @@
-package ru.clevertec.model.utils;
+package ru.clevertec.service.utils;
 
-import ru.clevertec.model.utils.sax.SAXHandler;
+import ru.clevertec.service.utils.sax.SAXHandler;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +9,17 @@ import java.util.Map;
 import java.util.Properties;
 
 public class Init {
+
+    private Init() {
+    }
+
+    public static final String ARGS_REGEX = ".*.+=.+";
+    public static final String ITEM_ID_REGEX = "([1-9]\\d?)|100";
+    public static final String ITEM_NAME_REGEX = "[A-Z][a-z]{2,29}";
+    public static final String ITEM_PRICE_REGEX = "(([1-9][\\d]{0,1}).[\\d]{2})|100\\.00";
+    public static final String BOOLEAN_REGEX = "true|false";
+    public static final String ITEM_QUANTITY_REGEX = "([1-9])|(1\\d)|20";
+    public static final String CARDS_ID_REGEX = "\\d*";
 
     private static int saleDiscountPercent;
     private static int saleQuantity;
@@ -19,6 +30,7 @@ public class Init {
     private static String itemsFileName;
     private static String cardsFileName;
     private static String outputFileName;
+    private static String errorLogFileName;
     private static String title;
     private static String market;
     private static String address;
@@ -61,6 +73,10 @@ public class Init {
 
     public static String getOutputFileName() {
         return outputFileName;
+    }
+
+    public static String getErrorLogFileName() {
+        return errorLogFileName;
     }
 
     public static String getCurr() {
@@ -170,6 +186,7 @@ public class Init {
             itemsFileName = properties.getProperty("itemsFileName");
             cardsFileName = properties.getProperty("cardsFileName");
             outputFileName = properties.getProperty("outputFileName");
+            errorLogFileName = properties.getProperty("errorLogFileName");
             title = properties.getProperty("title");
             market = properties.getProperty("market");
             address = properties.getProperty("address");
@@ -197,7 +214,7 @@ public class Init {
             System.exit(1);
         }
 
-        itemsMap = SAXHandler.getMap(path + itemsFileName, itemsTags);
-        cardsMap = SAXHandler.getMap(path + cardsFileName, cardsTags);
+        itemsMap = SAXHandler.getMap(path + itemsFileName, itemsTags, ITEM_ID_REGEX);
+        cardsMap = SAXHandler.getMap(path + cardsFileName, cardsTags, CARDS_ID_REGEX);
     }
 }

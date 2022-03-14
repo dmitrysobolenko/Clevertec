@@ -1,16 +1,23 @@
 package ru.clevertec.model.entities;
 
 import ru.clevertec.model.exceptions.InputDataException;
-import ru.clevertec.model.utils.Init;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import static ru.clevertec.service.utils.Init.ARGS_REGEX;
+import static ru.clevertec.service.utils.Init.ITEM_ID_REGEX;
+import static ru.clevertec.service.utils.Init.ITEM_QUANTITY_REGEX;
+import static ru.clevertec.service.utils.Init.getCardsMap;
+import static ru.clevertec.service.utils.Init.getItemsMap;
+import static ru.clevertec.service.utils.Util.verifyData;
 
 public class CheckFactory {
+
+    private static int itemId = 0;
+    private static int quantity = 0;
+    private static boolean miss = false;
+    private static int length;
 
     private CheckFactory() {
     }
@@ -20,45 +27,28 @@ public class CheckFactory {
         DiscountCard discountCard;
         Map<Integer, Item> items;
         String[] itemStrArray;
-        int customerId;
-        List<Integer> wrongIds = new ArrayList<>();
-        int itemId;
-        int quantity;
-        int length = checkStrArray.length;
+        length = checkStrArray.length;
 
         if (length == 0) {
             throw new InputDataException("No arguments found");
         }
 
-        customerId = getCustomerId(checkStrArray);
-        discountCard = DiscountCardFactory.getInstance(Init.getCardsMap().get(customerId));
-
-        if (customerId != -1) {
-            length--;
-        }
-
+        discountCard = getDiscountCard(checkStrArray);
         items = new LinkedHashMap<>();
 
         for (int i = 0; i < length; i++) {
 
-            Pattern pattern = Pattern.compile("\\d+-\\d+(?<!0)");
-            Matcher matcher = pattern.matcher(checkStrArray[i]);
-            if (!matcher.matches()) {
-                throw new InputDataException("Wrong argument: " + checkStrArray[i]);
+            parseArg(checkStrArray[i]);
+            itemStrArray = getItemsMap().get(itemId);
+
+            for (String s : itemStrArray) {
+                if (s == null) {
+                    itemStrArray = null;
+                    break;
+                }
             }
 
-            String[] itemData = checkStrArray[i].split("-");
-
-            try {
-                itemId = Integer.parseInt(itemData[0]);
-                quantity = Integer.parseInt(itemData[1]);
-            } catch (NumberFormatException e) {
-                throw new InputDataException("Wrong argument: " + checkStrArray[i]);
-            }
-            itemStrArray = Init.getItemsMap().get(itemId);
-
-            if (itemStrArray == null) {
-                wrongIds.add(itemId);
+            if (itemStrArray == null || miss) {
                 continue;
             }
 
@@ -68,27 +58,41 @@ public class CheckFactory {
                 items.put(itemId, ItemFactory.getInstance(itemStrArray, quantity, discountCard));
             }
         }
-        if (!wrongIds.isEmpty()) {
-            for (Integer wrongId : wrongIds) {
-                System.err.println("Item not found: " + wrongId);
-            }
-        }
         return new Check(items, discountCard);
     }
 
-    private static int getCustomerId(String[] checkStrArray) {
+    private static DiscountCard getDiscountCard(String[] checkStrArray) {
 
         String cardString = checkStrArray[checkStrArray.length - 1];
         int customerId = -1;
 
-        if (cardString.startsWith("card-")) {
+        if (cardString.startsWith("card=")) {
             try {
-                customerId = Integer.parseInt(cardString.replace("card-", ""));
+                customerId = Integer.parseInt(cardString.replace("card=", ""));
             } catch (NumberFormatException e) {
                 customerId = -2;
                 System.err.println("Wrong discount card format: " + cardString);
             }
         }
-        return customerId;
+
+        if (customerId != -1) {
+            length--;
+        }
+        return DiscountCardFactory.getInstance(getCardsMap().get(customerId));
+    }
+
+    public static void parseArg(String arg) {
+        String data = verifyData(arg, ARGS_REGEX, "Incorrect arg: ");
+        if (!data.equals("#")) {
+            String[] itemData = data.split("=");
+            String id = verifyData(itemData[0], ITEM_ID_REGEX, "Incorrect id: ");
+            String count = verifyData(itemData[1], ITEM_QUANTITY_REGEX, "Incorrect quantity: ");
+            if (!id.equals("#") && !count.equals("#")) {
+                itemId = Integer.parseInt(itemData[0]);
+                quantity = Integer.parseInt(itemData[1]);
+            } else miss = true;
+        } else {
+            miss = true;
+        }
     }
 }

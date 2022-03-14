@@ -7,34 +7,38 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import static ru.clevertec.model.utils.Init.getAddress;
-import static ru.clevertec.model.utils.Init.getCashier;
-import static ru.clevertec.model.utils.Init.getCostString;
-import static ru.clevertec.model.utils.Init.getCustomerString;
-import static ru.clevertec.model.utils.Init.getDateFormat;
-import static ru.clevertec.model.utils.Init.getDateString;
-import static ru.clevertec.model.utils.Init.getDescriptionString;
-import static ru.clevertec.model.utils.Init.getDiscountString;
-import static ru.clevertec.model.utils.Init.getMarket;
-import static ru.clevertec.model.utils.Init.getPersonalDiscountString;
-import static ru.clevertec.model.utils.Init.getPhone;
-import static ru.clevertec.model.utils.Init.getPriseString;
-import static ru.clevertec.model.utils.Init.getQuantityString;
-import static ru.clevertec.model.utils.Init.getSaleString;
-import static ru.clevertec.model.utils.Init.getTaxableTotString;
-import static ru.clevertec.model.utils.Init.getTimeFormat;
-import static ru.clevertec.model.utils.Init.getTimeString;
-import static ru.clevertec.model.utils.Init.getTitle;
-import static ru.clevertec.model.utils.Init.getTotalPriseString;
-import static ru.clevertec.model.utils.Init.getTotalString;
-import static ru.clevertec.model.utils.Init.getVatRate;
-import static ru.clevertec.model.utils.Init.getVatString;
-import static ru.clevertec.model.utils.Util.calculatePercents;
-import static ru.clevertec.model.utils.Util.formatMoney;
-import static ru.clevertec.model.utils.Util.line;
-import static ru.clevertec.model.utils.Util.middle;
+import static ru.clevertec.service.utils.Init.getAddress;
+import static ru.clevertec.service.utils.Init.getCashier;
+import static ru.clevertec.service.utils.Init.getCostString;
+import static ru.clevertec.service.utils.Init.getCustomerString;
+import static ru.clevertec.service.utils.Init.getDateFormat;
+import static ru.clevertec.service.utils.Init.getDateString;
+import static ru.clevertec.service.utils.Init.getDescriptionString;
+import static ru.clevertec.service.utils.Init.getDiscountString;
+import static ru.clevertec.service.utils.Init.getMarket;
+import static ru.clevertec.service.utils.Init.getPersonalDiscountString;
+import static ru.clevertec.service.utils.Init.getPhone;
+import static ru.clevertec.service.utils.Init.getPriseString;
+import static ru.clevertec.service.utils.Init.getQuantityString;
+import static ru.clevertec.service.utils.Init.getSaleString;
+import static ru.clevertec.service.utils.Init.getTaxableTotString;
+import static ru.clevertec.service.utils.Init.getTimeFormat;
+import static ru.clevertec.service.utils.Init.getTimeString;
+import static ru.clevertec.service.utils.Init.getTitle;
+import static ru.clevertec.service.utils.Init.getTotalPriseString;
+import static ru.clevertec.service.utils.Init.getTotalString;
+import static ru.clevertec.service.utils.Init.getVatRate;
+import static ru.clevertec.service.utils.Init.getVatString;
+import static ru.clevertec.service.utils.Util.calculatePercents;
+import static ru.clevertec.service.utils.Util.formatMoney;
+import static ru.clevertec.service.utils.Util.line;
+import static ru.clevertec.service.utils.Util.middle;
 
 public class CheckService {
+
+    private CheckService() {
+    }
+
     public static String getCheck(Check check) {
 
         Map<Integer, Item> items;
