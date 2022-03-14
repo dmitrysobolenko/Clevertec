@@ -1,6 +1,4 @@
-package ru.clevertec.utils;
-
-import ru.clevertec.beans.DiscountCard;
+package ru.clevertec.model.entities;
 
 public class DiscountCardFactory {
 

@@ -9,12 +9,18 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'war'
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    gradlePluginPortal()
 }
+
+group = 'ru.clevertec'
+version = '1.0-SNAPSHOT'
+description = 'Check Webapp'
 
 dependencies {
     // Use JUnit test framework.
@@ -22,6 +28,10 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
+
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
 }
 
 application {

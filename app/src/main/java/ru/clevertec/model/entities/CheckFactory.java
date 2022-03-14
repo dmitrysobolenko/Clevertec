@@ -1,9 +1,7 @@
-package ru.clevertec.utils;
+package ru.clevertec.model.entities;
 
-import ru.clevertec.beans.Check;
-import ru.clevertec.beans.DiscountCard;
-import ru.clevertec.beans.Item;
-import ru.clevertec.exceptions.InputDataException;
+import ru.clevertec.model.exceptions.InputDataException;
+import ru.clevertec.model.utils.Init;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -33,7 +31,7 @@ public class CheckFactory {
         }
 
         customerId = getCustomerId(checkStrArray);
-        discountCard = DiscountCardFactory.getInstance(Util.getCardMap().get(customerId));
+        discountCard = DiscountCardFactory.getInstance(Init.getCardsMap().get(customerId));
 
         if (customerId != -1) {
             length--;
@@ -57,7 +55,7 @@ public class CheckFactory {
             } catch (NumberFormatException e) {
                 throw new InputDataException("Wrong argument: " + checkStrArray[i]);
             }
-            itemStrArray = Util.getItemMap().get(itemId);
+            itemStrArray = Init.getItemsMap().get(itemId);
 
             if (itemStrArray == null) {
                 wrongIds.add(itemId);
