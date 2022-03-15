@@ -15,7 +15,7 @@ public class Init {
 
     public static final String ARGS_REGEX = ".*.+=.+";
     public static final String ITEM_ID_REGEX = "([1-9]\\d?)|100";
-    public static final String ITEM_NAME_REGEX = "[A-Z][a-z]{2,29}";
+    public static final String ITEM_NAME_REGEX = "[A-ZА-Я][a-zа-я]{2,29}";
     public static final String ITEM_PRICE_REGEX = "(([1-9][\\d]{0,1}).[\\d]{2})|100\\.00";
     public static final String BOOLEAN_REGEX = "true|false";
     public static final String ITEM_QUANTITY_REGEX = "([1-9])|(1\\d)|20";
