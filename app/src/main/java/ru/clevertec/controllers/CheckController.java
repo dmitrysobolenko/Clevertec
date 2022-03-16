@@ -1,10 +1,10 @@
 package ru.clevertec.controllers;
 
 import ru.clevertec.model.entities.Check;
-import ru.clevertec.model.exceptions.InputDataException;
 import ru.clevertec.model.entities.CheckFactory;
-import ru.clevertec.model.utils.Init;
-import ru.clevertec.model.utils.Util;
+import ru.clevertec.model.exceptions.InputDataException;
+import ru.clevertec.service.utils.Init;
+import ru.clevertec.service.utils.Util;
 import ru.clevertec.service.CheckService;
 
 import javax.servlet.RequestDispatcher;
@@ -19,11 +19,10 @@ import java.io.IOException;
 public class CheckController extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
         String[] args = request.getParameter("args").split(" ");
         String path = getServletContext().getRealPath("/WEB-INF/classes/");
-
         Init.initialize(path);
 
         Check check = null;
@@ -33,13 +32,13 @@ public class CheckController extends HttpServlet {
         } catch (InputDataException e) {
             e.printStackTrace();
         }
-        String output = null;
-        if (check != null) {
-            output = CheckService.getCheck(check);
-        }
+        String output = CheckService.getCheck(check);
         Util.symbolWrite(output, path + "/" + Init.getOutputFileName());
-
-        RequestDispatcher rd = request.getRequestDispatcher("\\WEB-INF\\classes\\check.txt");
-        rd.forward(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/classes/check.txt");
+        try {
+            rd.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

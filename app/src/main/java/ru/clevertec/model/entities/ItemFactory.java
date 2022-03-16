@@ -1,8 +1,8 @@
 package ru.clevertec.model.entities;
 
-import ru.clevertec.model.utils.Init;
+import ru.clevertec.service.utils.Init;
 
-import static ru.clevertec.model.utils.Util.calculatePercents;
+import static ru.clevertec.service.utils.Util.calculatePercents;
 
 public class ItemFactory {
 
